@@ -1,6 +1,10 @@
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssnanoPlugin = require('@intervolga/optimize-cssnano-plugin')
 const path = require('path')
 const pkg = require('./package.json')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 const port = 3100
 
@@ -13,6 +17,12 @@ const config = {
 		path: path.join(__dirname, 'public'),
 		filename: 'js/[name].js',
 		publicPath: '/'
+	},
+	resolve: {
+		alias: {
+			app: path.resolve(__dirname, 'src/app/'),
+		},
+		extensions: ['.js', '.less']
 	},
 	module: {
 		rules: [
@@ -31,7 +41,54 @@ const config = {
 			},
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							publicPath: '../',
+							hmr: process.env.NODE_ENV === 'development',
+						},
+					},
+					{
+						loader: 'css-loader'
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [
+								autoprefixer({
+									browsers:[
+										'> 1%',
+										'last 2 versions'
+									]
+								})
+							],
+						}
+					}
+				]
+				// use: ExtractTextPlugin.extract(
+				// 	{
+				// 		fallback: 'style-loader',
+				// 		use: [
+				// 			{
+				// 				loader: 'css-loader'
+				// 			},
+				// 			{
+				// 				loader: 'postcss-loader',
+				// 				options: {
+				// 					plugins: [
+				// 						autoprefixer({
+				// 							browsers:[
+				// 								'> 1%',
+				// 								'last 2 versions'
+				// 							]
+				// 						})
+				// 					],
+				// 				}
+				// 			}
+				// 		]
+				// 	}
+				// )
 			}
 		]
 	},
@@ -49,7 +106,27 @@ const config = {
 				xhtml: true
 			},
 			template: './src/index.html'
-		})
+		}),
+		new webpack.ProvidePlugin({
+			PropTypes: 'prop-types',
+			React: 'react',
+			ReactDOM: 'react-dom'
+		}),
+		new MiniCssExtractPlugin({
+			filename: 'css/app.css'
+		}),
+		new OptimizeCssnanoPlugin({
+			cssnanoOptions: {
+				preset: [
+					'default',
+					{
+						discardComments: {
+							removeAll: true,
+						}
+					}
+				],
+			},
+		}),
 	]
 }
 
@@ -61,6 +138,5 @@ if (process.env.NODE_ENV === 'development') {
 		port
 	}
 }
-
 
 module.exports = config
