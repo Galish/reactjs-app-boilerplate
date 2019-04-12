@@ -5,16 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode development",
-    "build": "NODE_ENV=production webpack --mode production"
+    "build": "NODE_ENV=production webpack --mode production",
+    "lint": "eslint src; exit 0",
+    "lint:err": "eslint src --quiet; exit 0"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-idiomatic": "^4.0.0",
+    "eslint-plugin-react": "^7.12.4",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
