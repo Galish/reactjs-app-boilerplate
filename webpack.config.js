@@ -20,7 +20,7 @@ const config = {
 	},
 	resolve: {
 		alias: {
-			app: path.resolve(__dirname, 'src/app/'),
+			app: path.resolve(__dirname, 'src/'),
 		},
 		extensions: ['.js', '.less']
 	},
@@ -34,7 +34,8 @@ const config = {
 					options: {
 						presets: [
 							'babel-preset-env',
-							'babel-preset-react'
+							'babel-preset-react',
+							'babel-preset-stage-0'
 						]
 					}
 				},
@@ -66,29 +67,6 @@ const config = {
 						}
 					}
 				]
-				// use: ExtractTextPlugin.extract(
-				// 	{
-				// 		fallback: 'style-loader',
-				// 		use: [
-				// 			{
-				// 				loader: 'css-loader'
-				// 			},
-				// 			{
-				// 				loader: 'postcss-loader',
-				// 				options: {
-				// 					plugins: [
-				// 						autoprefixer({
-				// 							browsers:[
-				// 								'> 1%',
-				// 								'last 2 versions'
-				// 							]
-				// 						})
-				// 					],
-				// 				}
-				// 			}
-				// 		]
-				// 	}
-				// )
 			}
 		]
 	},
@@ -134,6 +112,7 @@ if (process.env.NODE_ENV === 'development') {
 	config.devServer = {
 		contentBase: './public',
 		clientLogLevel: 'info',
+		historyApiFallback: true,
 		hot: true,
 		port
 	}

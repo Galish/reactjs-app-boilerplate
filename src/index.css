@@ -8,3 +8,9 @@ body {
 	background: #ebebeb;
 	padding: 10px;
 }
+body a {
+	color: black;
+}
+body p {
+	padding-bottom: 10px;
+}

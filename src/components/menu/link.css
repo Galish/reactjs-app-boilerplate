@@ -1,0 +1,11 @@
+.menu-link {
+	color: white;
+	margin-left: 20px;
+}
+.menu-link:first-child {
+	margin-left: 0;
+}
+.menu-link.is-active {
+	cursor: default;
+	text-decoration: none;
+}
