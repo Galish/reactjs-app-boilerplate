@@ -18,11 +18,13 @@
         "no-inline-comments": 0
     },
     "globals": {
+        "global": true,
         "i18n": true,
         "Promise": true,
         "PropTypes": true,
         "React": true,
         "ReactDOM": true,
+        "require": true,
         "WeakMap": true
     },
     "root": true,

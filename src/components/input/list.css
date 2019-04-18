@@ -1,0 +1,13 @@
+.list i.icon {
+	height: 15px;
+	width: 15px;
+	font-size: 15px;
+	vertical-align: top;
+	margin-left: 10px;
+}
+.list {
+	padding-left: 20px;
+}
+.list li {
+	padding-top: 10px;
+}

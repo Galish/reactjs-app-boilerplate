@@ -1,0 +1,14 @@
+.panel {
+	color: white;
+	padding: 10px 50px 10px 10px;
+	background: #999;
+	border-radius: 10px;
+	position: relative;
+	margin-bottom: 20px;
+}
+.panel i.icon {
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	font-style: normal;
+}

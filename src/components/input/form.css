@@ -1,0 +1,18 @@
+.input-form i.icon {
+	height: 20px;
+	width: 20px;
+	font-size: 20px;
+	position: absolute;
+	top: 9px;
+	right: 10px;
+}
+.input-form input.text-input {
+	height: 20px;
+	width: 100%;
+	font-size: 15px;
+	vertical-align: middle;
+	border: none;
+	outline: none;
+	margin-right: 10px;
+	padding: 0 5px;
+}
