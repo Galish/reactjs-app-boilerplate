@@ -1,3 +1,6 @@
+global._babelPolyfill = false
+import 'babel-polyfill'
+
 import './index.css'
 import App from 'app/components'
 

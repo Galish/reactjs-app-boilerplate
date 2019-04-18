@@ -18,6 +18,7 @@
         "no-inline-comments": 0
     },
     "globals": {
+        "global": true,
         "i18n": true,
         "Promise": true,
         "PropTypes": true,
