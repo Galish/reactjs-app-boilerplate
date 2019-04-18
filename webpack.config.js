@@ -112,6 +112,7 @@ if (process.env.NODE_ENV === 'development') {
 	config.devServer = {
 		contentBase: './public',
 		clientLogLevel: 'info',
+		historyApiFallback: true,
 		hot: true,
 		port
 	}

@@ -1,7 +1,14 @@
+import {BrowserRouter} from 'react-router-dom'
+
 import './index.css'
-import App from 'app/components'
+import routes from './routes'
+
+const supportsHistory = 'pushState' in window.history
 
 ReactDOM.render(
-	<App />,
+	<BrowserRouter basename="/"
+		forceRefresh={!supportsHistory}>
+		{routes}
+	</BrowserRouter>,
 	document.getElementById('app')
 )
