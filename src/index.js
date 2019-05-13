@@ -1,7 +1,8 @@
 global._babelPolyfill = false
 import 'babel-polyfill'
 
-import './index.css'
+import './normalize.less'
+import './index.less'
 import App from 'app/components'
 
 ReactDOM.render(

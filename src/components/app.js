@@ -1,9 +1,9 @@
-import './app.css'
+import './app.less'
 
 const App = () => (
-	<div className="container">
+	<div className="container container--black">
 		Hello world!!!
 	</div>
 )
 
-export default App;
+export default App
